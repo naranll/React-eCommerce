@@ -107,13 +107,4 @@ const data = [
         price: 1200,
         category: "phones",
     },
-    // {
-    //     title: "",
-    //         image:
-    //     "",
-    //         description:
-    //     "",
-    //         price: “”,
-    //     category: "",
-    //     },
 ]

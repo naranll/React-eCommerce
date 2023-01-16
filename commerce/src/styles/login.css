@@ -1,0 +1,21 @@
+.loginPage {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 53, 133, 0.78);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.loginForm {
+  background-color: white;
+}
+
+.loginForm form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}

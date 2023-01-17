@@ -8,7 +8,7 @@ export default function Popular() {
     const navigate = useNavigate();
     return <div className="products">
         {productsData.map((product, i) => {
-            console.log(i, product);
+            // console.log(i, product);
             return <div key={i} className="productsCard">
                 <img className="productsImg" src={product.image} />
                 <h5>{product.name}</h5>

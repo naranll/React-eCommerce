@@ -1,0 +1,32 @@
+.categories {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categories ul {
+  display: flex;
+  list-style: none;
+  gap: 13px;
+}
+
+.categories ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #003585;
+  border-radius: 20px;
+  width: 139px;
+  height: 45px;
+}
+
+.categories a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.categories ul li a:active {
+  border: 3px solid #a7f65c;
+}

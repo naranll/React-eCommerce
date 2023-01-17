@@ -1,0 +1,7 @@
+.sliderContainer {
+  height: 630px;
+  background-color: #003585;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

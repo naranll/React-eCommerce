@@ -2,14 +2,14 @@ import "../../styles/categories.css"
 
 export default function Categories() {
     return <div className="categories">
-        <p>Popular products</p>
+        <h3>Popular products</h3>
         <ul>
             {/* add rendering effect */}
-            <li>Camera</li>
-            <li>Laptops</li>
-            <li>Tablets</li>
-            <li>Mouse</li>
-            <li>Sale</li>
+            <li><a href="#">Camera</a></li>
+            <li><a href="#">Laptops</a></li>
+            <li><a href="#">Tablets</a></li>
+            <li><a href="#">Mouse</a></li>
+            <li><a href="#">Sale</a></li>
         </ul>
     </div >
 }

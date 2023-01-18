@@ -145,7 +145,7 @@ export const productsData = [
         image: "https://www.xiaomihome.global/wp-content/uploads/2022/11/xiaomi-book-air-13-2022-cover-1.webp",
         price: 1200,
         stock: 10,
-        sale: 247,
+        sale: 24,
         category: "laptop",
     },
 

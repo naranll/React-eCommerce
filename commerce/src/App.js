@@ -3,7 +3,8 @@ import Body from "./components/Body";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
-import Product from "./components/sub/Product";
+import ProdPage from "./components/ProdPage";
+
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Body />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/product/:id" element={< Product />} />
+        <Route path="/product/:id" element={< ProdPage />} />
       </Routes>
       <Footer />
     </div>

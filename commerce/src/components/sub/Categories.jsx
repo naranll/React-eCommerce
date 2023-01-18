@@ -1,19 +1,18 @@
 import "../../styles/categories.css";
-import { useState } from "react";
 
-export default function Categories() {
-    const [category, setCategory] = useState('');
-    console.log("category:", category);
-
-
-    return <div className="categories">
-        <h3>Popular products</h3>
-        <ul>
-            {/* add rendering effect */}
-            <li ><button onClick={()=> setCategory('computers & tablets')}>Computers/Tablets</button></li>
-            <li ><button onClick={()=> setCategory('appliances')}>Appliances</button></li>
-            <li ><button onClick={()=> setCategory('gaming console')}>Console</button></li>
-            <li ><button onClick={()=> setCategory('telescope')}>Telescope</button></li>
-        </ul>
+export default function Categories(prop) {
+    const { chosenCategory } = prop;
+    return <div >
+        <div className="categories">
+            <h2>Popular products</h2>
+            <ul>
+                <li ><button onClick={() => chosenCategory('all')}>All</button></li>
+                <li ><button onClick={() => chosenCategory('computers & tablets')}>Computers & Tablets</button></li>
+                <li ><button onClick={() => chosenCategory('appliances')}>Appliances</button></li>
+                <li ><button onClick={() => chosenCategory('gaming console')}>Console</button></li>
+                <li ><button onClick={() => chosenCategory('telescope')}>Telescope</button></li>
+            </ul>
+        </div>
     </div >
+
 }

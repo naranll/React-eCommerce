@@ -3,7 +3,6 @@
 }
 
 .productsContainer {
-  /* max-width: 1300px; */
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -14,6 +13,8 @@
   position: relative;
   max-width: 24%;
   max-height: 314px;
+  /* width: 315px;
+  height: 314px; */
   border-radius: 20px;
   border: 1px solid #b6b6b6;
   padding: 20px;
@@ -41,7 +42,7 @@
   color: #003585;
   font-weight: 600;
   font-size: 18px;
-  border: 25px solid #a7f65c;       
+  border: 22px solid #a7f65c;       
   border-left: 0;                      
   border-right: 20px solid transparent; 
   display: flex;

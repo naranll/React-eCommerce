@@ -17,7 +17,7 @@ export default function Cards(prop) {
             return <div key={i} className="productsCard">
                 {product.sale > 0 ? <div className="saleTag">Sale {product.sale}% off </div> : ''}
 
-                <img className="productsImg" src={product.image} />
+                <img className="productImg" src={product.image} />
                 <h5>{product.name}</h5>
 
                 {product.sale > 0 ? <div className="salePrice">${onSale(product)}<span className="origPrice">${product.price}</span></div> : <div>${product.price}</div>}

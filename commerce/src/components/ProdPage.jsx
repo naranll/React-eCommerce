@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom"
-import { productsData } from "./../../util/data"
+import { productsData } from "../util/data";
 
 export default function Product() {
     const { id } = useParams();
-    console.log(id);
+    // console.log(id);
 
     function checkSale(object) {
         let newPrice;
@@ -13,11 +13,9 @@ export default function Product() {
         }
     }
 
-
     return <div>Product
         {productsData.map((chosenProduct, i) => {
             if (chosenProduct.id == id) {
-                // console.log("chosen product:", i, chosenProduct);
                 return <div key={i} className="productImg">
                     <img src={chosenProduct.image} />
                     <div className="productInfo">

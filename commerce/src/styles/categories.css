@@ -6,6 +6,10 @@
   align-items: center;
 }
 
+.categories h2 {
+  color: #003585;
+}
+
 .categories ul {
   display: flex;
   list-style: none;
@@ -15,10 +19,12 @@
 .categories ul li {
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
 .categories ul li button {
+  color: #003585;
+  font-size: 16px;
   background-color: inherit;
   border: 1px solid #003585;
   border-radius: 20px;
@@ -28,4 +34,5 @@
 
 .categories ul li button:focus {
   border: 3px solid #a7f65c;
+  font-weight: 700;
 }

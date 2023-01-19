@@ -20,7 +20,7 @@ export default function Cards(prop) {
                 <img className="productImg" src={product.image} />
                 <h5>{product.name}</h5>
 
-                {product.sale > 0 ? <div className="salePrice">${onSale(product)}<span className="origPrice">${product.price}</span></div> : <div>${product.price}</div>}
+                {product.sale > 0 ? <div className="salePrice">${onSale(product)}<div className="origPrice">${product.price}</div></div> : <div>${product.price}</div>}
 
                 <div className="shopIcon" onClick={() => {
                     navigate(`product/${product.id}`)

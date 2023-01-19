@@ -1,6 +1,77 @@
 .sliderContainer {
-  height: 630px;
+  height: 620px;
   background-color: #003585;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  width: 100%;
+}
+
+.sliderText p {
+  color: white;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 55px;
+  margin: 0;
+}
+
+.sliderBtns {
+  margin-top: 44px;
+  display: flex;
+  gap: 21px;
+}
+
+.sliderBtn {
+  width: 144px;
+  height: 50px;
+  border: 1px solid #a7f65c;
+  border-radius: 25px;
+  background-color: inherit;
+  color: #a7f65c;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sliderBtn:active {
+  background-color: white;
+  color: #003585;
+}
+
+.cameraAdd {
+  position: relative;
+  width: 40%;
+  height: 70%;
+}
+
+.ellipse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* width: 75%; */
+}
+
+.camera {
+  position: absolute;
+  /* height: 466px;
+  width: 466px; */
+  right: 0;
+  top: 15%;
+  /* width: 80%; */
+}
+
+.onlySticker {
+  position: absolute;
+  background-color: #a7f65c;
+  right: 0;
+  bottom: 15%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  color: #003585;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -42,9 +42,9 @@
   color: #003585;
   font-weight: 600;
   font-size: 18px;
-  border: 22px solid #a7f65c;       
-  border-left: 0;                      
-  border-right: 20px solid transparent; 
+  border: 22px solid #a7f65c;
+  border-left: 0;
+  border-right: 20px solid transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,6 +58,4 @@
 .origPrice {
   color: grey;
   text-decoration: line-through;
-  position: absolute;
-  right: 35%;
 }

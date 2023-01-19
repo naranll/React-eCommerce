@@ -5,9 +5,12 @@ export const LINKS = [
 
 export const users = [
     {
-        username: "asdf",
-        password: "asdf",
-        userType: "user",
+        username: "a1",
+        password: "a1",
+    },
+    {
+        username: "q",
+        password: "q",
     }
 ];
 

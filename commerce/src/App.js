@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import ProdPage from "./components/ProdPage";
+import "./styles/app.css";
 
 
 function App() {

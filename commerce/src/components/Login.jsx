@@ -22,8 +22,6 @@ export default function Login() {
         }
     }
 
-
-
     function getInput(input) {
         input.preventDefault();
         checkUser(input.target.inName.value, input.target.inPass.value);

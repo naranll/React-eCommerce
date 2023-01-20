@@ -7,7 +7,7 @@ import "../../styles/popular.css";
 
 export default function Popular() {
     const [currentCategory, setCurrentCategory] = useState("all");
-    console.log("currently:", currentCategory);
+    // console.log("current catergory:", currentCategory);
 
     function filterArray(product) {
         return currentCategory === "all" ? true : product.category === currentCategory;

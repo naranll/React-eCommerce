@@ -8,23 +8,25 @@ export default function Login() {
     const [userPass, setUserPass] = useState('');
     const [loginState, setLoginState] = useState(false);
 
+
     function checkUser(name, pass) {
-        if (users.map((user) => { user.username === name && user.password === pass })) {
-            setLoginState(true);
-            console.log("finally logged");
-        } else {
-            console.log("not");
+        console.log("input:", name, pass);
+        users.map((user) => {
+            if (user.username === name && user.password === pass) {
+                setLoginState(true);
+                console.log("finally logged in");
+            }
+        })
+        if (!loginState) {
+            console.log("error")
         }
-        console.log("input", name, pass)
-        console.log("login State at checkPoint:", loginState);
     }
+
+
 
     function getInput(input) {
         input.preventDefault();
-        setUserName(input.target.inName.value);
-        setUserPass(input.target.inPass.value);
-        checkUser(userName, userPass);
-        console.log("login State at input:", loginState);
+        checkUser(input.target.inName.value, input.target.inPass.value);
     }
 
     function signUp() {
@@ -42,3 +44,16 @@ export default function Login() {
         </div>
     </div>
 }
+
+
+
+  // function checkUser(name, pass) {
+    //     if (users.map((user) => { user.username === name && user.password === pass })) {
+    //         setLoginState(true);
+    //         console.log("finally logged"); //working without checking?
+    //     } else {
+    //         console.log("not");
+    //     }
+    //     console.log("input", name, pass)
+    //     console.log("login State at checkPoint:", loginState);
+    // }

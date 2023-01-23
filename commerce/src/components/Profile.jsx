@@ -1,8 +1,10 @@
 import { users } from "../util/data";
 import { useParams } from "react-router-dom"
 
-export default function Profile(){
+export default function Profile(prop){
     const {name} = useParams();
+    const {username} =prop;
+
     return <div>
         user profile:{users.map((user,i) => {
             if(user.username === name){

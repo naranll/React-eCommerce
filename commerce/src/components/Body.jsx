@@ -2,6 +2,7 @@ import Slider from "./sub/Slider";
 import Special from "./sub/Special";
 import "../styles/body.css";
 import Popular from "../components/sub/Popular";
+import Brands from "../svg/Brands";
 
 export default function Body() {
     return <div className="body">
@@ -14,7 +15,9 @@ export default function Body() {
                 <img src="./poster.png" alt="poster" className="poster" />
             </div>
             <Special />
-            <div>Brands</div>
+            <div className="brands">
+                <Brands />
+            </div>
         </div>
     </div>
 }

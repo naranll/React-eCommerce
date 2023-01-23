@@ -1,47 +1,34 @@
 import "../styles/login.css";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import LoginLogo from "../svg/LoginLogo";
+import { useNavigate} from "react-router-dom";
 import { users } from "../util/data";
 
 
-export default function Login() {
-    // const [userName, setUserName] = useState('');
-    // const [userPass, setUserPass] = useState('');
-    const [loginState, setLoginState] = useState(false);
-    const navigateUser = useNavigate();
+export default function Login(prop) {
+    const {loginChecker, loginState} = prop;
+    const navigate = useNavigate();
 
-    function checkUser(name, pass) {
-        console.log("input:", name, pass);
-        users.map((user) => {
-            if (user.username === name && user.password === pass) {
-                setLoginState(true);      
-                navigateUser(`/profile/${name}`);
-            }
-        })
-        // if (!loginState) {
-        //     console.log("error");
-        // }
-        console.log("logged in?", loginState);
-    }
+   if(loginState){
+    navigate('/');
+   }
 
-    console.log("logged in?", loginState);
-    
     function getInput(input) {
         input.preventDefault();
-        checkUser(input.target.inName.value, input.target.inPass.value);
+        loginChecker(input.target.inName.value, input.target.inPass.value);
     }
 
-    function signUp() {
-        console.log("sign up btn");
+    function register() {
+        console.log("register button");
     }
 
     return <div className="loginPage">
         <div className="loginForm">
+            <LoginLogo />
             <form onSubmit={getInput}>
                 <input type="text" placeholder="Email or phone number" name="inName" />
                 <input type="text" placeholder="Password" name="inPass" />
-                <button type="submit">Sign In</button>
-                <input type="button" value="Sign Up" onClick={() => signUp()} />
+                <button type="submit">Log In</button>
+                <input type="button" onClick={() => register()} value="Register" className="registerBtn"/>
             </form>
         </div>
     </div>
@@ -59,3 +46,8 @@ export default function Login() {
     //     console.log("input", name, pass)
     //     console.log("login State at checkPoint:", loginState);
     // }
+
+
+      // if (!loginState) {
+        //     console.log("error");
+        // }  

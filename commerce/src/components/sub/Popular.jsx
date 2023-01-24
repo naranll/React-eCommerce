@@ -1,21 +1,26 @@
-import { productsData } from "../../util/data";
+// import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Cards from "./Cards";
+import Card from "./Card";
 import Categories from "./Categories";
 import "../../styles/popular.css";
 
 
-export default function Popular() {
+export default function Popular(prop) {
+    const { products, setProducts } = prop;
     const [currentCategory, setCurrentCategory] = useState("all");
-    // console.log("current catergory:", currentCategory);
 
     function filterArray(product) {
         return currentCategory === "all" ? true : product.category === currentCategory;
     }
 
     return <div className="popular">
-        <Categories chosenCategory={setCurrentCategory} />
-        <Cards chosenCategory={currentCategory} filteredArray={productsData.filter(filterArray)} />
+        <Categories currentCategory={setCurrentCategory} chosen={currentCategory} />
+        <div className="productsContainer">
+            {products.filter(filterArray).map((product, i) => {
+                return <Card product={product} key={i} />
+            }).slice(0, 8)}
+        </div>
+
     </div>
 }
 

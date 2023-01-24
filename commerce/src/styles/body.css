@@ -15,6 +15,7 @@
 
 .body {
   width: 100%;
+  /* max-width: 1280px; */
 }
 
 .special {
@@ -24,19 +25,21 @@
   gap: 55px;
 }
 
-.special h3, .special h4, .special p{
+.special h3,
+.special h4,
+.special p {
   margin: 0;
 }
 
 .special h3 {
-  color: #003F62;
+  color: #003f62;
 }
 
-.specialBig{
+.specialBig {
   width: 620px;
   height: 780px;
-  border: 1px solid #C8C8C8;
-  border-radius: 20px; 
+  border: 1px solid #c8c8c8;
+  border-radius: 20px;
   padding: 80px 45px 50px;
   display: flex;
   flex-direction: column;
@@ -44,47 +47,47 @@
   align-items: center;
 }
 
-.specialBig img{
+.specialBig img {
   max-width: 503px;
   height: 350px;
 }
 
-.specialBig div{
+.specialBig div {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
-.specialSmalls{
+.specialSmalls {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.specialSmall{
+.specialSmall {
   width: 620px;
   height: 370px;
-  border: 1px solid #C8C8C8;
+  border: 1px solid #c8c8c8;
   border-radius: 20px;
-  padding: 40px 20px; 
+  padding: 40px 20px;
   display: flex;
   justify-content: center;
   gap: 34px;
 }
 
-.specialSmall img{
+.specialSmall img {
   width: 318px;
   height: 288px;
   border-radius: 20px;
 }
 
-.specialSmall div{
+.specialSmall div {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-.specialBtn{
+.specialBtn {
   width: 180px;
   height: 60px;
   color: #fff;
@@ -98,20 +101,20 @@
   padding: 20px 15px;
 }
 
-.specialBtn span{
+.specialBtn span {
   width: 40px;
   height: 40px;
-  border: 1px solid #E9E9E9;
+  border: 1px solid #e9e9e9;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.specialDate{
+.specialDate {
   width: 140px;
   height: 40px;
-  border: 1px solid #97F65C;
+  border: 1px solid #97f65c;
   border-radius: 20px;
   padding: 5px;
   text-align: center;
@@ -119,9 +122,8 @@
   font-size: 20px;
 }
 
-.specialDecor{
-  color:#97F65C;
+.specialDecor {
+  color: #97f65c;
   font-weight: 600;
   font-size: 14px;
 }
-

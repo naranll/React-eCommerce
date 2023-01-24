@@ -13,7 +13,7 @@ export default function Product() {
         }
     }
 
-    return <div>Product
+    return <div>
         {productsData.map((chosenProduct, i) => {
             if (chosenProduct.id == id) {
                 return <div key={i} className="productImg">

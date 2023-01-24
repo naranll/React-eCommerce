@@ -1,16 +1,16 @@
 import "../styles/login.css";
 import LoginLogo from "../svg/LoginLogo";
-import { useNavigate} from "react-router-dom";
-import { users } from "../util/data";
+import { useNavigate } from "react-router-dom";
+// import { users } from "../util/data";
 
 
 export default function Login(prop) {
-    const {loginChecker, loginState} = prop;
-    const navigate = useNavigate();
+    const { loginChecker, loginState } = prop;
+    // const navigate = useNavigate();
 
-   if(loginState){
-    navigate('/');
-   }
+    // if (loginState) {
+    //     navigate('/');
+    // }
 
     function getInput(input) {
         input.preventDefault();
@@ -28,7 +28,7 @@ export default function Login(prop) {
                 <input type="text" placeholder="Email or phone number" name="inName" />
                 <input type="text" placeholder="Password" name="inPass" />
                 <button type="submit">Log In</button>
-                <input type="button" onClick={() => register()} value="Register" className="registerBtn"/>
+                <input type="button" onClick={() => register()} value="Register" className="registerBtn" />
             </form>
         </div>
     </div>

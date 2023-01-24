@@ -32,7 +32,7 @@
   height: 45px;
 }
 
-.categories ul li button:focus {
-  border: 3px solid #a7f65c;
+.chosen {
+  border: 3px solid #a7f65c !important;
   font-weight: 700;
 }

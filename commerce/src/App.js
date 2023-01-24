@@ -26,7 +26,7 @@ function App() {
     });
   }
 
-  function coundHandler() { }
+  function coundHandler(){ }
 
   return (
     <div className="App">

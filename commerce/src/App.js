@@ -12,7 +12,7 @@ import "./styles/app.css";
 function App() {
   const [loginState, setLoginState] = useState(false);
   const [username, setUserName] = useState("");
-  // const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
 
   function loginChecker(userName, userPass) {
     console.log("input:", userName, userPass);
@@ -27,11 +27,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header loginState={loginState} username={username}/>
+      <Header loginState={loginState} username={username} />
       <Routes>
         <Route path="/" element={<Body />} />
-        <Route path="/login" element={<Login loginChecker={loginChecker} loginState={loginState}/>} />
-        <Route path="/profile/:name" element={<Profile username={username}/>} />
+        <Route path="/login" element={<Login loginChecker={loginChecker} loginState={loginState} />} />
+        <Route path="/profile/:id" element={<Profile username={username} />} />
         <Route path="/product/:id" element={<ProdPage />} />
       </Routes>
       <Footer />

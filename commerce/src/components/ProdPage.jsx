@@ -29,8 +29,7 @@ export default function Product() {
                         <ul>
                             {chosenProduct.spec.map((specObj, i) => {
                                 for (let prop in specObj) {
-                                    console.log(prop);
-                                    console.log(specObj.prop)
+                                    console.log(prop, ":", specObj[prop]);
                                     return <li key={i}>{prop} : {specObj[prop]}</li>
                                 }
                             })}

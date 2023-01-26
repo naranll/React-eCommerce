@@ -3,11 +3,13 @@ import Special from "./sub/Special";
 import "../styles/body.css";
 import Popular from "./sub/Popular";
 import Brands from "../svg/Brands";
-import { productsData } from "../util/data";
-import { useState } from "react";
+// import { productsData } from "../util/data";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-export default function Main() {
-    const [products, setProducts] = useState(productsData);
+export default function Main(prop) {
+    // const [products, setProducts] = useState(productsData);
+    const { products, setProducts } = prop;
 
     return <div className="body">
         <Slider />

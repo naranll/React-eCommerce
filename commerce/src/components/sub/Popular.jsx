@@ -16,7 +16,7 @@ export default function Popular(prop) {
     return <div className="popular">
         <Categories currentCategory={setCurrentCategory} chosen={currentCategory} />
         <div className="productsContainer">
-            {products.filter(filterArray).map((product, i) => {
+            {[...products].filter(filterArray).map((product, i) => {
                 return <Card product={product} key={i} />
             }).slice(0, 8)}
         </div>

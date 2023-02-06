@@ -19,6 +19,7 @@ export default function Popular(prop) {
             {[...products].filter(filterArray).map((product, i) => {
                 return <Card product={product} key={i} />
             })}
+            {/* deleted slice */}
         </div>
 
     </div>

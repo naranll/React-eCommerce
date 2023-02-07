@@ -4,18 +4,20 @@ import "../styles/body.css";
 import Popular from "./sub/Popular";
 import Brands from "../svg/Brands";
 // import { productsData } from "../util/data";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect, useContext } from "react";
 
-export default function Main(prop) {
+import { ProductsContext } from "../DummyApp";
+
+export default function Main() {
     // const [products, setProducts] = useState(productsData);
-    const { products, setProducts } = prop;
+
+    const { products } = useContext(ProductsContext);
 
     return <div className="body">
         <Slider />
         <div className="main">
             <div>
-                <Popular products={products} setProducts={setProducts} />
+                <Popular products={products} />
             </div>
             <div>
                 <img src="./poster.png" alt="poster" className="poster" />

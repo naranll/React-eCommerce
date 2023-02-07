@@ -8,9 +8,6 @@ export default function Login(prop) {
     const { loginChecker, loginState } = prop;
     // const navigate = useNavigate();
 
-    // if (loginState) {
-    //     navigate('/');
-    // }
 
     function getInput(input) {
         input.preventDefault();
@@ -30,6 +27,7 @@ export default function Login(prop) {
                 <button type="submit">Log In</button>
                 <input type="button" onClick={() => register()} value="Register" className="registerBtn" />
             </form>
+            {loginState && <div>Logged in</div>}
         </div>
     </div>
 }

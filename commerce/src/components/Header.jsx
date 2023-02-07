@@ -4,10 +4,14 @@ import CartIcon from "../svg/CartIcon";
 import "../styles/header.css";
 import { useNavigate } from "react-router-dom";
 
-export default function Header(prop) {
+import { useContext } from "react";
+import { ProductsContext } from "../DummyApp";
+
+export default function Header() {
     const navigate = useNavigate();
-    const {username, loginState} = prop;
-    console.log(username);
+    // console.log(username);
+
+    const { username, loginState } = useContext(ProductsContext);
 
     const redirectToProfile = () => {
         navigate(`/profile/${username}`)
@@ -24,7 +28,7 @@ export default function Header(prop) {
         <div className="icons">
             {loginState ? (<div className="signIn" onClick={() => { redirectToProfile }}>
                 <SignIcon /> Hi, {username} </div>) :
-                <div className="signIn" onClick={() => {navigate('/login')}}>
+                <div className="signIn" onClick={() => { navigate('/login') }}>
                     <SignIcon />
                     Sign in
                 </div>

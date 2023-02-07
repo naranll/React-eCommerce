@@ -6,7 +6,7 @@ import "../../styles/popular.css";
 
 
 export default function Popular(prop) {
-    const { products, setProducts } = prop;
+    const { products } = prop;
     const [currentCategory, setCurrentCategory] = useState("all");
 
     function filterArray(product) {

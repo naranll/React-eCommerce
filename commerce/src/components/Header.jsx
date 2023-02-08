@@ -5,13 +5,13 @@ import "../styles/header.css";
 import { useNavigate } from "react-router-dom";
 
 import { useContext } from "react";
-import { ProductsContext } from "../NewApp";
+import { AllContext } from "../NewApp";
 
 export default function Header() {
     const navigate = useNavigate();
     // console.log(username);
 
-    const { username, loginState } = useContext(ProductsContext);
+    const { username, loginState } = useContext(AllContext);
 
     const redirectToProfile = () => {
         navigate(`/profile/${username}`)

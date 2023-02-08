@@ -5,7 +5,7 @@ import "../styles/header.css";
 import { useNavigate } from "react-router-dom";
 
 import { useContext } from "react";
-import { ProductsContext } from "../DummyApp";
+import { ProductsContext } from "../NewApp";
 
 export default function Header() {
     const navigate = useNavigate();

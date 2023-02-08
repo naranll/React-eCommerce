@@ -14,8 +14,9 @@ import { useContext, createContext } from 'react';
 import Layout from "./Layout";
 
 export const ProductsContext = createContext();
+export const UserContext = createContext();
 
-function DummyApp() {
+function NewApp() {
     const [loginState, setLoginState] = useState(false);
     const [username, setUserName] = useState("");
     const [buyCount, setBuyCount] = useState(0);
@@ -37,7 +38,6 @@ function DummyApp() {
             }
         });
     }
-    // function coundHandler() { }
 
     return (
         <div className="App">
@@ -55,4 +55,4 @@ function DummyApp() {
     );
 }
 
-export default DummyApp;
+export default NewApp;

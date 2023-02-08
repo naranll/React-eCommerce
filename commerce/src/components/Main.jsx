@@ -3,15 +3,13 @@ import Special from "./sub/Special";
 import "../styles/body.css";
 import Popular from "./sub/Popular";
 import Brands from "../svg/Brands";
-// import { productsData } from "../util/data";
 import { useState, useEffect, useContext } from "react";
 
-import { ProductsContext } from "../DummyApp";
+import { AllContext } from "../NewApp";
 
 export default function Main() {
-    // const [products, setProducts] = useState(productsData);
 
-    const { products } = useContext(ProductsContext);
+    const { products } = useContext(AllContext);
 
     return <div className="body">
         <Slider />

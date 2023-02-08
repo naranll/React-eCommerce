@@ -13,13 +13,15 @@ import axios from "axios";
 import { useContext, createContext } from 'react';
 import Layout from "./Layout";
 
-export const ProductsContext = createContext();
+export const AllContext = createContext();
 
-function DummyApp() {
+function NewApp() {
     const [loginState, setLoginState] = useState(false);
     const [username, setUserName] = useState("");
     const [buyCount, setBuyCount] = useState(0);
     const [products, setProducts] = useState('');
+
+    localStorage.setItem("loginState", loginState);
 
 
     useEffect(() => {
@@ -37,11 +39,10 @@ function DummyApp() {
             }
         });
     }
-    // function coundHandler() { }
 
     return (
         <div className="App">
-            <ProductsContext.Provider value={{ products, loginState, username }}>
+            <AllContext.Provider value={{ products, loginState, username }}>
                 <Layout>
                     <Routes>
                         <Route path="/" element={<Main />} />
@@ -50,9 +51,9 @@ function DummyApp() {
                         <Route path="/product/:id" element={<ProdPage />} />
                     </Routes>
                 </Layout>
-            </ProductsContext.Provider>
+            </AllContext.Provider>
         </div >
     );
 }
 
-export default DummyApp;
+export default NewApp;

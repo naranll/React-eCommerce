@@ -1,54 +1,73 @@
 import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
-import Main from "./components/Main";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Login from "./components/Login";
-import Profile from "./components/Profile";
-import ProdPage from "./components/ProdPage";
-import "./styles/app.css";
-
+import { useState, useEffect, createContext } from "react";
 import { users } from "./util/data";
 import axios from "axios";
 
+import "./styles/app.css";
+import Main from "./components/Main";
+import Login from "./components/Login";
+import Profile from "./components/Profile";
+import Product from "./components/Product";
+import Layout from "./components/Layout";
+
+
+// products, loginState, username, cartItems, setCartItems
+export const ProductsContext = createContext();
+export const LoginContext = createContext();
+
 function App() {
-  const [loginState, setLoginState] = useState(false);
-  const [username, setUserName] = useState("");
-  const [buyCount, setBuyCount] = useState(0);
-  const [products, setProducts] = useState('');
+    const [loginState, setLoginState] = useState();
+    const [username, setUserName] = useState("");
+    const [products, setProducts] = useState('');
+    const [cartItems, setCartItems] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:2020/products")
+            .then(response => setProducts(response.data))
+            .catch("error fetching")
+    }, [])
 
 
-  useEffect(() => {
-    axios.get("http://localhost:2020/products")
-      .then(response => setProducts(response.data))
-      .catch("error fetching")
-  }, [])
+    useEffect(() => {
+        if (localStorage.getItem("loginState")) {
+            setLoginState(localStorage.getItem("loginState"))
 
-  function loginChecker(userName, userPass) {
-    console.log("input:", userName, userPass);
-    users.map((user) => {
-      if (user.username === userName && user.password === userPass) {
-        setLoginState(true);
-        setUserName(userName);
-        // setPassword(userPass);
-      }
-    });
-  }
+            // localStorage.getItem("userninfo") 
+            //setCurrentuser()
+            //no neeed for loginstate anymore
 
-  // function coundHandler() { }
+        }
+    }, [])
 
-  return (
-    <div className="App">
-      <Header loginState={loginState} username={username} />
-      <Routes>
-        <Route path="/" element={<Main products={products} setProducts={setProducts} />} />
-        <Route path="/login" element={<Login loginChecker={loginChecker} loginState={loginState} />} />
-        <Route path="/profile/:id" element={<Profile username={username} />} />
-        <Route path="/product/:id" element={<ProdPage />} />
-      </Routes>
-      <Footer />
-    </div>
-  );
+    function loginChecker(userName, userPass) {
+        console.log("input:", userName, userPass);
+        users.map((user) => {
+            if (user.username === userName && user.password === userPass) {
+                setLoginState(true);
+                setUserName(userName);
+                // setCurrentUser(user) etc
+                // localStorage.setItem("currentuser", user)
+            }
+
+        });
+    }
+    console.log(loginState);
+    return (
+        <div className="App">
+            <ProductsContext.Provider value={{ products, username, cartItems, setCartItems }}>
+                <LoginContext.Provider value={{ loginState }}>
+                    <Layout>
+                        <Routes>
+                            <Route path="/" element={<Main />} />
+                            <Route path="/login" element={<Login loginChecker={loginChecker} />} />
+                            {loginState && <Route path="/profile/:username" element={<Profile />} />}
+                            <Route path="/product/:id" element={<Product />} />
+                        </Routes>
+                    </Layout>
+                </LoginContext.Provider>
+            </ProductsContext.Provider>
+        </div >
+    );
 }
 
 export default App;

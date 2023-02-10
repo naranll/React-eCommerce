@@ -5,11 +5,11 @@ import Popular from "./sub/Popular";
 import Brands from "../svg/Brands";
 import { useState, useEffect, useContext } from "react";
 
-import { AllContext } from "../NewApp";
+import { ProductsContext } from "../App";
 
 export default function Main() {
 
-    const { products } = useContext(AllContext);
+    const { products } = useContext(ProductsContext);
 
     return <div className="body">
         <Slider />

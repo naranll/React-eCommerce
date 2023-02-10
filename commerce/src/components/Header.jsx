@@ -3,19 +3,15 @@ import SignIcon from "../svg/SignIcon";
 import CartIcon from "../svg/CartIcon";
 import "../styles/header.css";
 import { useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
+import { ProductsContext, LoginContext } from "../App";
 
-import { useContext } from "react";
-import { AllContext } from "../NewApp";
-
-export default function Header() {
+export default function Header(prop) {
+    const { username, cartItems, setCartItems } = useContext(ProductsContext);
+    const { loginState } = useContext(LoginContext);
+    const { setShowCartModal } = prop;
     const navigate = useNavigate();
-    // console.log(username);
 
-    const { username, loginState } = useContext(AllContext);
-
-    const redirectToProfile = () => {
-        navigate(`/profile/${username}`)
-    };
 
     return <div className="header">
         <div onClick={() => { navigate('/') }}>
@@ -26,17 +22,21 @@ export default function Header() {
             <input className="searchBtn" type="button" value="Search" />
         </form>
         <div className="icons">
-            {loginState ? (<div className="signIn" onClick={() => { redirectToProfile }}>
+            {loginState ? (<div className="signIn" onClick={() => navigate(`/profile/${username}`)}>
                 <SignIcon /> Hi, {username} </div>) :
-                <div className="signIn" onClick={() => { navigate('/login') }}>
+                <div className="signIn" onClick={() => navigate('/login')}>
                     <SignIcon />
                     Sign in
                 </div>
             }
-            <div className="cart">
+
+            <div className="cart" onClick={() => {
+                loginState ? setShowCartModal(true) : navigate('/login')
+            }}>
                 <CartIcon />
-                <div className="insideCart">0</div>
+                <div className="insideCart">{cartItems.length}</div>
             </div>
+
         </div>
     </div>
 }

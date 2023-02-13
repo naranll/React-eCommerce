@@ -1,22 +1,22 @@
 import { users } from "../util/data";
 import { useContext } from "react";
-import { useParams } from "react-router-dom"
-import { ProductsContext, LoginContext } from "../App";
+import { useNavigate, useParams } from "react-router-dom"
+import { ProductsContext, UserContext } from "../App";
 import "../styles/profile.css";
 
-export default function Profile(prop) {
+export default function Profile() {
     const { id } = useParams();
-    const { username } = useContext(ProductsContext);
-    const { loginState } = useContext(LoginContext);
+    const { setCurrentUser, currentUser } = useContext(UserContext);
+    const navigate = useNavigate();
+
+    function logOutHandler() {
+        localStorage.setItem("currentUser", []);
+        setCurrentUser();
+        navigate("/login");
+    }
 
     return <div className="profile">
-        user profile:{username}
+        user profile:{currentUser.username}
+        <button onClick={logOutHandler}>Log Out</button>
     </div>
-    // return <div>
-    //     user profile:{users.map((user, i) => {
-    //         if (user.username === username) {
-    //             return <h1 key={i}>{username}</h1>
-    //         }
-    //     })}
-    // </div>
 }

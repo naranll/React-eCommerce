@@ -13,13 +13,13 @@ import Layout from "./components/Layout";
 
 // products, loginState, username, cartItems, setCartItems
 export const ProductsContext = createContext();
-export const LoginContext = createContext();
+export const UserContext = createContext();
 
 function App() {
-    const [loginState, setLoginState] = useState();
-    const [username, setUserName] = useState("");
+    const [currentUser, setCurrentUser] = useState();
     const [products, setProducts] = useState('');
     const [cartItems, setCartItems] = useState([]);
+
 
     useEffect(() => {
         axios.get("http://localhost:2020/products")
@@ -27,44 +27,36 @@ function App() {
             .catch("error fetching")
     }, [])
 
-
     useEffect(() => {
-        if (localStorage.getItem("loginState")) {
-            setLoginState(localStorage.getItem("loginState"))
-
-            // localStorage.getItem("userninfo") 
-            //setCurrentuser()
-            //no neeed for loginstate anymore
-
-        }
+        if (localStorage.getItem("currentUser")) {
+            setCurrentUser(JSON.parse(localStorage.getItem("currentUser")));
+        };
+        console.log("logout");
     }, [])
 
     function loginChecker(userName, userPass) {
         console.log("input:", userName, userPass);
         users.map((user) => {
             if (user.username === userName && user.password === userPass) {
-                setLoginState(true);
-                setUserName(userName);
-                // setCurrentUser(user) etc
-                // localStorage.setItem("currentuser", user)
+                setCurrentUser(user);
+                localStorage.setItem("currentUser", JSON.stringify(user));
             }
-
         });
     }
-    console.log(loginState);
+
     return (
         <div className="App">
-            <ProductsContext.Provider value={{ products, username, cartItems, setCartItems }}>
-                <LoginContext.Provider value={{ loginState }}>
+            <ProductsContext.Provider value={{ products, cartItems, setCartItems }}>
+                <UserContext.Provider value={{ setCurrentUser, currentUser }}>
                     <Layout>
                         <Routes>
                             <Route path="/" element={<Main />} />
                             <Route path="/login" element={<Login loginChecker={loginChecker} />} />
-                            {loginState && <Route path="/profile/:username" element={<Profile />} />}
+                            {currentUser && <Route path="/profile/:id" element={<Profile />} />}
                             <Route path="/product/:id" element={<Product />} />
                         </Routes>
                     </Layout>
-                </LoginContext.Provider>
+                </UserContext.Provider>
             </ProductsContext.Provider>
         </div >
     );

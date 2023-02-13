@@ -4,11 +4,11 @@ import CartIcon from "../svg/CartIcon";
 import "../styles/header.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
-import { ProductsContext, LoginContext } from "../App";
+import { ProductsContext, UserContext } from "../App";
 
 export default function Header(prop) {
-    const { username, cartItems, setCartItems } = useContext(ProductsContext);
-    const { loginState } = useContext(LoginContext);
+    const { cartItems, setCartItems } = useContext(ProductsContext);
+    const { currentUser } = useContext(UserContext);
     const { setShowCartModal } = prop;
     const navigate = useNavigate();
 
@@ -22,8 +22,8 @@ export default function Header(prop) {
             <input className="searchBtn" type="button" value="Search" />
         </form>
         <div className="icons">
-            {loginState ? (<div className="signIn" onClick={() => navigate(`/profile/${username}`)}>
-                <SignIcon /> Hi, {username} </div>) :
+            {currentUser ? (<div className="signIn" onClick={() => navigate(`/profile/${currentUser.username}`)}>
+                <SignIcon /> Hi, {currentUser.username} </div>) :
                 <div className="signIn" onClick={() => navigate('/login')}>
                     <SignIcon />
                     Sign in
@@ -31,7 +31,7 @@ export default function Header(prop) {
             }
 
             <div className="cart" onClick={() => {
-                loginState ? setShowCartModal(true) : navigate('/login')
+                currentUser ? setShowCartModal(true) : navigate('/login')
             }}>
                 <CartIcon />
                 <div className="insideCart">{cartItems.length}</div>

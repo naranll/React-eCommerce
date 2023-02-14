@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom"
 import { productsData } from "../util/data";
+import { ProductsContext } from "../App";
+import { useContext } from "react";
 
 export default function Product() {
     const { id } = useParams();
-    // console.log(id);
+    const { setCartItems } = useContext(ProductsContext);
 
     function checkSale(object) {
         let newPrice;
@@ -18,6 +20,11 @@ export default function Product() {
             if (chosenProduct.id == id) {
                 return <div key={i} className="productImg">
                     <img src={chosenProduct.image} />
+                    <div>
+                        <button onClick={() => setCartItems(prev => [...prev, chosenProduct.id])}>
+                            Add to cart</button>
+                    </div>
+
                     <div className="productInfo">
                         {chosenProduct.sale == 0 ? <h2>Price: ${chosenProduct.price}</h2> : <div><h2>Price: ${checkSale(chosenProduct)}<span>(-{chosenProduct.sale}%)</span></h2> <div>Original: ${chosenProduct.price}</div></div>}
                         <ul>
@@ -29,7 +36,7 @@ export default function Product() {
                         <ul>
                             {chosenProduct.spec.map((specObj, i) => {
                                 for (let prop in specObj) {
-                                    console.log(prop, ":", specObj[prop]);
+                                    // console.log(prop, ":", specObj[prop]);
                                     return <li key={i}>{prop} : {specObj[prop]}</li>
                                 }
                             })}

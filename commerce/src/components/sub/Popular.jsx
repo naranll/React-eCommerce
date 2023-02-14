@@ -1,12 +1,13 @@
 // import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Card from "./Card";
 import Categories from "./Categories";
 import "../../styles/popular.css";
 
+import { ProductsContext } from "../../App";
 
-export default function Popular(prop) {
-    const { products } = prop;
+export default function Popular() {
+    const { products } = useContext(ProductsContext);
     const [currentCategory, setCurrentCategory] = useState("all");
 
     function filterArray(product) {
@@ -19,9 +20,7 @@ export default function Popular(prop) {
             {[...products].filter(filterArray).map((product, i) => {
                 return <Card product={product} key={i} />
             }).slice(0, 8)}
-            {/* deleted slice */}
         </div>
-
     </div>
 }
 

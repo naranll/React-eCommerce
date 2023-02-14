@@ -7,11 +7,16 @@ import "../styles/profile.css";
 export default function Profile() {
     const { id } = useParams();
     const { setCurrentUser, currentUser } = useContext(UserContext);
+    const { setCartItems } = useContext(ProductsContext);
     const navigate = useNavigate();
 
     function logOutHandler() {
-        localStorage.setItem("currentUser", []);
+        // localStorage.setItem("currentUser", []);
+        localStorage.removeItem("currentUser");
         setCurrentUser();
+        localStorage.removeItem("cartItems");
+        // localStorage.setItem("cartItems", JSON.stringify([]));
+        setCartItems([]);
         navigate("/login");
     }
 

@@ -7,7 +7,7 @@ import { useState, useContext } from "react";
 import { ProductsContext, UserContext } from "../App";
 
 export default function Header(prop) {
-    const { cartItems, setCartItems } = useContext(ProductsContext);
+    const { cartItems } = useContext(ProductsContext);
     const { currentUser } = useContext(UserContext);
     const { setShowCartModal } = prop;
     const navigate = useNavigate();
@@ -34,7 +34,7 @@ export default function Header(prop) {
                 currentUser ? setShowCartModal(true) : navigate('/login')
             }}>
                 <CartIcon />
-                <div className="insideCart">{cartItems.length}</div>
+                <div className="insideCart">{cartItems ? cartItems.length : 0}</div>
             </div>
 
         </div>

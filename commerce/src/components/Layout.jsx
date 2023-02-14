@@ -5,6 +5,7 @@ import CartModal from "./sub/CartModal";
 import Button from "react-bootstrap/esm/Button";
 import OffcanvasHeader from "react-bootstrap/esm/OffcanvasHeader";
 import Offcanvas from "react-bootstrap/Offcanvas";
+
 export default function Layout({ children }) {
     const [showCartModal, setShowCartModal] = useState(false);
 

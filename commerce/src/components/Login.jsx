@@ -1,17 +1,13 @@
 import "../styles/login.css";
 import LoginLogo from "../svg/LoginLogo";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { LoginContext } from "../App";
+import { UserContext } from "../App";
 
 // import { users } from "../util/data";
 
-
 export default function Login(prop) {
     const { loginChecker } = prop;
-    const { loginState } = useContext(LoginContext);
-
-    // const navigate = useNavigate();
+    const { currentUser } = useContext(UserContext);
 
     function getInput(input) {
         input.preventDefault();
@@ -23,7 +19,7 @@ export default function Login(prop) {
     }
 
     return <div className="loginPage">
-        {loginState ? <div>Logged in</div> : <div className="loginForm">
+        {currentUser ? <div>Logged in</div> : <div className="loginForm">
             <LoginLogo />
             <form onSubmit={getInput}>
                 <input type="text" placeholder="Email or phone number" name="inName" />

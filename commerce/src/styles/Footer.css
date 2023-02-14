@@ -1,11 +1,13 @@
 .footer {
   height: 370px;
+  width: 100vw;
   background-color: #003585;
   display: flex;
   justify-content: space-between;
   padding: 65px 60px 80px;
   position: relative;
   bottom: 0;
+  left: 0;
 }
 
 .footerLeft {

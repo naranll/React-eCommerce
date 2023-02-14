@@ -1,9 +1,12 @@
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
+import "../../styles/cartModal.css";
+import { ProductsContext } from "../../App";
+import { useContext } from "react";
 
 export default function CartModal(prop) {
     const { setShowCartModal, showCartModal } = prop;
-    console.log("calling modal to show");
+    const { products, cartItems } = useContext(ProductsContext);
 
     return (
         <Offcanvas show={showCartModal} placement="end" onHide={() => setShowCartModal(false)}>
@@ -11,8 +14,13 @@ export default function CartModal(prop) {
                 <Offcanvas.Title>Offcanvas</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-                Some text as placeholder. In real life you can have the elements you
-                have chosen. Like, text, images, lists, etc.
+                <div className="modal-items">
+                    {cartItems.map((id, i) => {
+                        let selected = products.find((product) => product.id == id)
+                        return <div key={i}>{selected.name}</div>
+                    })}
+
+                </div>
             </Offcanvas.Body>
         </Offcanvas>
     );

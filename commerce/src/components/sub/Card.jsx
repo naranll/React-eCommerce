@@ -2,9 +2,12 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/cards.css";
 import ShopIcon from "../../svg/ShopIcon";
 
+import { ProductsContext } from "../../App";
+import { useContext } from "react";
 
 export default function Card(prop) {
     const { product } = prop;
+    const { addToCart, setCartItems } = useContext(ProductsContext);
     const navigate = useNavigate();
 
     function onSale(product) {
@@ -20,7 +23,7 @@ export default function Card(prop) {
         {product.sale > 0 ? <div className="salePrice">${onSale(product)}<div className="origPrice">${product.price}</div></div> : <div>${product.price}</div>}
 
         <div className="shopIcon" >
-            <ShopIcon />
+            <ShopIcon onClick={() => setCartItems(prev => [...prev, product.id])} />
         </div>
 
     </div>

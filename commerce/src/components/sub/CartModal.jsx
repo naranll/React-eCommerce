@@ -19,7 +19,7 @@ export default function CartModal(prop) {
     function onRemove(itemIndex) {
         console.log("onRemove", itemIndex);
         cartItems.splice(itemIndex, 1);
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        // localStorage.setItem("cartItems", JSON.stringify(cartItems));
         console.log("after onRemove:", cartItems);
     }
 

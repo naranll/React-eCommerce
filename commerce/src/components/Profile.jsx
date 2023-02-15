@@ -1,13 +1,13 @@
 import { users } from "../util/data";
 import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom"
-import { ProductsContext, UserContext } from "../App";
+import { BasketContext, UserContext } from "../App";
 import "../styles/profile.css";
 
 export default function Profile() {
     const { id } = useParams();
     const { setCurrentUser, currentUser } = useContext(UserContext);
-    const { setCartItems } = useContext(ProductsContext);
+    const { setCartItems } = useContext(BasketContext);
     const navigate = useNavigate();
 
     function logOutHandler() {

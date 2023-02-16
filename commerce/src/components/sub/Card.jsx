@@ -2,12 +2,12 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/cards.css";
 import ShopIcon from "../../svg/ShopIcon";
 
-import { ProductsContext } from "../../App";
+import { BasketContext } from "../../App";
 import { useContext } from "react";
 
 export default function Card(prop) {
     const { product } = prop;
-    const { addToCart, setCartItems } = useContext(ProductsContext);
+    const { setCartItems } = useContext(BasketContext);
     const navigate = useNavigate();
 
     function onSale(product) {

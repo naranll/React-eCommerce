@@ -9,20 +9,12 @@ import Profile from "./components/Profile";
 import Product from "./components/Product";
 import Layout from "./components/Layout";
 
-export const ProductsContext = createContext();
+export const BasketContext = createContext();
 export const UserContext = createContext();
 
 function App() {
     const [currentUser, setCurrentUser] = useState();
-    const [products, setProducts] = useState("");
     const [cartItems, setCartItems] = useState([]);
-
-    useEffect(() => {
-        axios
-            .get("http://localhost:2020/products")
-            .then((response) => setProducts(response.data))
-            .catch("error fetching");
-    }, []);
 
     useEffect(() => {
         if (localStorage.getItem("currentUser")) {
@@ -50,11 +42,11 @@ function App() {
         if (cartItems) localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }, [cartItems]);
 
-    console.log("cartItems: ", cartItems);
+    // console.log("cartItems: ", cartItems);
 
     return (
         <div className="App">
-            <ProductsContext.Provider value={{ products, cartItems, setCartItems }}>
+            <BasketContext.Provider value={{ cartItems, setCartItems }}>
                 <UserContext.Provider value={{ setCurrentUser, currentUser }}>
                     <Layout>
                         <Routes>
@@ -70,7 +62,7 @@ function App() {
                         </Routes>
                     </Layout>
                 </UserContext.Provider>
-            </ProductsContext.Provider>
+            </BasketContext.Provider>
         </div>
     );
 }

@@ -4,10 +4,10 @@ import CartIcon from "../svg/CartIcon";
 import "../styles/header.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
-import { ProductsContext, UserContext } from "../App";
+import { BasketContext, UserContext } from "../App";
 
 export default function Header(prop) {
-    const { cartItems } = useContext(ProductsContext);
+    const { cartItems } = useContext(BasketContext);
     const { currentUser } = useContext(UserContext);
     const { setShowCartModal } = prop;
     const navigate = useNavigate();

@@ -1,10 +1,9 @@
-// import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import Card from "./Card";
 import Categories from "./Categories";
 import "../../styles/popular.css";
 
-import { ProductsContext } from "../../App";
+import { ProductsContext } from "../../contexts/ProductsContext";
 
 export default function Popular() {
     const { products } = useContext(ProductsContext);

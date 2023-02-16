@@ -1,11 +1,13 @@
 import { useParams } from "react-router-dom"
-import { productsData } from "../util/data";
-import { ProductsContext } from "../App";
+import { ProductsContext } from "../contexts/ProductsContext";
+import { BasketContext } from "../App";
 import { useContext } from "react";
 
 export default function Product() {
     const { id } = useParams();
-    const { setCartItems } = useContext(ProductsContext);
+    const { products } = useContext(ProductsContext);
+    const { setCartItems } = useContext(BasketContext);
+
 
     function checkSale(object) {
         let newPrice;
@@ -16,7 +18,7 @@ export default function Product() {
     }
 
     return <div>
-        {productsData.map((chosenProduct, i) => {
+        {products.map((chosenProduct, i) => {
             if (chosenProduct.id == id) {
                 return <div key={i} className="productImg">
                     <img src={chosenProduct.image} />
